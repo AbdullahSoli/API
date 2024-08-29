@@ -30,7 +30,9 @@ def preprocessing(input_features: InputFeatures):
     # Scale the input features
     scaled_features = scaler_kmeans.transform([features_list])
     return scaled_features
-
+@app.get("/")
+async def root():
+    return {"message": "Welcome to the Football Player Prediction API"}
 # Define prediction route
 @app.post("/predict")
 async def predict(input_features: InputFeatures):
