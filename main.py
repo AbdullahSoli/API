@@ -3,7 +3,9 @@ from pydantic import BaseModel
 import joblib
 
 app = FastAPI()
-
+@app.get("/")
+def root():
+ return "Welcome To Tuwaiq Academy"
 # Load models and scalers
 model_kmeans = joblib.load('kmens_model.joblib')
 scaler_kmeans = joblib.load('kmens_scaler.joblib')
